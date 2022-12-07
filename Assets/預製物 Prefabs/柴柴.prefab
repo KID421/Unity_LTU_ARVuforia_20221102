@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  stoppintDistance: 5
+  stoppintDistance: 3.5
 --- !u!1 &4630646742035323391
 GameObject:
   m_ObjectHideFlags: 0
