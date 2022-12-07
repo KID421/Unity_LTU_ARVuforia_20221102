@@ -14,7 +14,6 @@ public class TrackSystem : MonoBehaviour
     private Animator ani;
     private string parWalk = "開關走路";
 
-
     // 喚醒事件：播放遊戲後執行一次
     private void Awake()
     {
@@ -42,7 +41,7 @@ public class TrackSystem : MonoBehaviour
 
         // velocity 三維加速度
         // magnitude 三維向量的長度 - 將三維向量轉為福點數
-        print($"<color=yellow>代理器的加速度：{nma.velocity.magnitude}</color>");
+        // print($"<color=yellow>代理器的加速度：{nma.velocity.magnitude}</color>");
         ani.SetBool(parWalk, nma.velocity.magnitude != 0);
     }
 }
