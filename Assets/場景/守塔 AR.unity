@@ -189,6 +189,9 @@ MonoBehaviour:
   pointToSpawn: {fileID: 57312493}
   intervalFire: 3
   radiusAttack: 7
+  layerAttack:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &102306392
 GameObject:
   m_ObjectHideFlags: 0

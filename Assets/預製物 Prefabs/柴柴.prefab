@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 4630646740219904445}
   - component: {fileID: 1719603270262583027}
   - component: {fileID: 7770765830110094302}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u67F4\u67F4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
