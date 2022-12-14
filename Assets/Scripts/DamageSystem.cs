@@ -1,33 +1,41 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 namespace KID
 {
     /// <summary>
-    /// ¶Ë®`¨t²Î¡GÀx¦s¦å¶q¡B§PÂ_¦©¦å»P¦º¤`
+    /// å‚·å®³ç³»çµ±ï¼šå„²å­˜è¡€é‡ã€åˆ¤æ–·æ‰£è¡€èˆ‡æ­»äº¡
     /// </summary>
     public class DamageSystem : MonoBehaviour
     {
-        [SerializeField, Header("¦å¶q"), Range(0, 5000)]
+        [SerializeField, Header("è¡€é‡"), Range(0, 5000)]
         private float hp;
-        [SerializeField, Header("¦å±ø")]
+        [SerializeField, Header("è¡€æ¢")]
         private Image imgHp;
 
         private float maxHp;
         private Animator ani;
-        private string parDamage = "Ä²µo¨ü¶Ë";
-        private string parDead = "¶}Ãö¦º¤`";
+        private string parDamage = "è§¸ç™¼å—å‚·";
+        private string parDead = "é–‹é—œæ­»äº¡";
+        private NavMeshAgent nma;
+        private TowerSystem towerSystem;
 
         private void Awake()
         {
             ani = GetComponent<Animator>();
+            nma = GetComponent<NavMeshAgent>();
+
+            // é€éé¡å‹å°‹æ‰¾ç‰©ä»¶<æ³›å‹>(); - è©²é¡å‹åªèƒ½æœ‰ä¸€å€‹åœ¨å ´æ™¯ä¸Š
+            towerSystem = FindObjectOfType<TowerSystem>();
+
             maxHp = hp;
         }
 
         /// <summary>
-        /// ³y¦¨¶Ë®`
+        /// é€ æˆå‚·å®³
         /// </summary>
-        /// <param name="damage">¶Ë®`­È</param>
+        /// <param name="damage">å‚·å®³å€¼</param>
         public void GetDamage(float damage)
         {
             hp -= damage;
@@ -38,11 +46,14 @@ namespace KID
         }
 
         /// <summary>
-        /// ¦º¤`
+        /// æ­»äº¡
         /// </summary>
         private void Dead()
         {
             ani.SetBool(parDead, true);
+            nma.isStopped = true;
+            gameObject.layer = 0;                   // é‚„åŸåœ–å±¤
+            towerSystem.targetInAttackArea = null;  // å¡”ç³»çµ±çš„ç›®æ¨™ ç‚º ç©ºå€¼
         }
     }
 }

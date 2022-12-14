@@ -1,23 +1,23 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// §ğÀ»¨t²Î¡G§PÂ_­n§ğÀ»ªºª«¥ó¨Ã¶Ç»¼¶Ë®`
+    /// æ”»æ“Šç³»çµ±ï¼šåˆ¤æ–·è¦æ”»æ“Šçš„ç‰©ä»¶ä¸¦å‚³éå‚·å®³
     /// </summary>
     public class AttackSystem : MonoBehaviour
     {
-        [SerializeField, Header("­n§ğÀ»ªºª«¥ó¦WºÙ")]
+        [SerializeField, Header("è¦æ”»æ“Šçš„ç‰©ä»¶åç¨±")]
         private string nameTarget;
-        [SerializeField, Header("§ğÀ»¤O"), Range(0, 5000)]
+        [SerializeField, Header("æ”»æ“ŠåŠ›"), Range(0, 5000)]
         private float attack;
 
         private void OnCollisionEnter(Collision collision)
         {
-            // ¦pªG ¸I¨ìª«¥ó¦WºÙ ¥]§t ­n§ğÀ»ªºª«¥ó¦WºÙ
+            // å¦‚æœ ç¢°åˆ°ç‰©ä»¶åç¨± åŒ…å« è¦æ”»æ“Šçš„ç‰©ä»¶åç¨±
             if (collision.gameObject.name.Contains(nameTarget))
             {
-                // ¸I¨ìª«¥ó¨ú±o¶Ë®`¨t²Î ¨Ã ©I¥s ³y¦¨¶Ë®`(§ğÀ»¤O)
+                // ç¢°åˆ°ç‰©ä»¶å–å¾—å‚·å®³ç³»çµ± ä¸¦ å‘¼å« é€ æˆå‚·å®³(æ”»æ“ŠåŠ›)
                 collision.gameObject.GetComponent<DamageSystem>().GetDamage(attack);
             }
         }

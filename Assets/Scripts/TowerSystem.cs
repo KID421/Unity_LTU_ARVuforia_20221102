@@ -24,10 +24,11 @@ namespace KID
         [SerializeField, Header("攻擊偵測圖層")]
         private LayerMask layerAttack;
 
-        private Transform targetInAttackArea;
         private Animator ani;
         private string parAttack = "觸發攻擊";
         private float timer;
+
+        public Transform targetInAttackArea;
         #endregion
 
         #region 事件區域
