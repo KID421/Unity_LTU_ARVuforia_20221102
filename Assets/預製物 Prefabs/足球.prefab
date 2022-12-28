@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTarget: "\u67F4\u67F4"
-  attack: 5000
+  attack: 50
