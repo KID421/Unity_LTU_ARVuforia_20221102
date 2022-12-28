@@ -21,9 +21,14 @@ namespace KID
         private float hp = 1000;
         private float hpMax;
         private Image imgHp;
+        private Animator ani;
+        private string parDead = "開關死亡";
+        private TowerSystem towerSystem;
 
         private void Awake()
         {
+            ani = GetComponent<Animator>();
+
             hpMax = hp;
 
             imgHp = GameObject.Find("血條").GetComponent<Image>();
@@ -32,7 +37,7 @@ namespace KID
             btnUpdateAttack = GameObject.Find("按鈕升級").GetComponent<Button>();
             btnUpdateAttack.onClick.AddListener(UpdateAttack);
 
-            GetDamage(100);
+            towerSystem = FindObjectOfType<TowerSystem>();
         }
 
         /// <summary>
@@ -68,6 +73,17 @@ namespace KID
         {
             hp -= damage;
             imgHp.fillAmount = hp / hpMax;
+
+            if (hp <= 0) Dead();
+        }
+
+        /// <summary>
+        /// 死亡
+        /// </summary>
+        private void Dead()
+        {
+            ani.SetBool(parDead, true);
+            towerSystem.enabled = false;
         }
     }
 }
